@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      /* Correct Tailwind v4 font theme injection styling */
+      @theme {
+        --font-orbitron: "Orbitron", sans-serif;
+        --font-mono: "Roboto Mono", monospace;
+      }
+
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+      .animate-scanline {
+        animation: scanline 4s linear infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white font-mono min-h-screen selection:bg-red-600 selection:text-black">
+    
+    <nav class="max-w-[1320px] w-full mx-auto flex flex-col sm:flex-row justify-between items-center py-6 px-6 border-b border-red-600/20 gap-4">
+      <div>
+        <a href="#" class="text-3xl font-bold font-orbitron text-red-600 tracking-tighter">
+          <span class="text-white">DEV</span>.ROBOT
+        </a>
+      </div>
+      <div>
+        <ul class="flex flex-wrap justify-center gap-4 sm:gap-8">
+          <li><a href="#home" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Home ]</a></li>
+          <li><a href="#about" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ About ]</a></li>
+          <li><a href="#skills" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Skills ]</a></li>
+          <li><a href="#projects" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Projects ]</a></li>
+          <li><a href="#contact" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Contact ]</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="home" class="max-w-[1320px] w-full mx-auto mt-12 overflow-hidden border border-red-600/30 bg-black relative group">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-red-600/10 to-transparent h-full w-full animate-scanline"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between px-6 sm:px-16 py-16 lg:py-28 gap-12">
+        <div class="max-w-2xl w-full">
+          <div class="inline-block px-3 py-1 border border-red-600 text-red-600 text-xs font-bold uppercase tracking-[0.3em] mb-6 animate-pulse">
+            System Status: Online
+          </div>
+          <h1 class="text-5xl sm:text-7xl font-bold mb-6 leading-none font-orbitron">
+            <span class="text-white block">SOFTWARE</span>
+            <span class="text-red-600 block">ENGINEER</span>
+          </h1>
+          <p class="text-slate-400 text-base sm:text-lg mb-10 leading-relaxed max-w-lg border-l-2 border-red-600 pl-6">
+            Executing high-performance algorithms. Architecting scalable neural networks. Building the future of digital infrastructure.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 sm:gap-6">
+            <a href="#projects" class="group relative px-6 sm:px-8 py-4 bg-red-600 text-black font-bold uppercase tracking-widest overflow-hidden transition-all duration-300 hover:bg-white text-center flex-1 sm:flex-none">
+              <span class="relative z-10">Initialize Projects</span>
+              <div class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+            </a>
+            <a href="#contact" class="px-6 sm:px-8 py-4 border border-border border-red-600 text-red-600 font-bold uppercase tracking-widest hover:bg-red-600/10 transition-all duration-300 text-center flex-1 sm:flex-none">
+              Establish Connection
+            </a>
+          </div>
+
+          <div class="mt-16 flex flex-wrap items-center gap-6 sm:gap-8">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">M</div>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">E</div>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">R</div>
+              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">N</div>
+            </div>
+            <div class="hidden sm:block h-[1px] w-24 bg-red-600/30"></div>
+            <span class="text-red-600/60 text-[10px] uppercase tracking-[0.5em]">Protocol v2.0.4</span>
+          </div>
+        </div>
+
+        <div class="relative w-full max-w-[450px] aspect-square border-2 border-red-600/20 flex items-center justify-center p-4">
+          <div class="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-red-600"></div>
+          <div class="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-red-600"></div>
+          <div class="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-red-600"></div>
+          <div class="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-red-600"></div>
+
+          <div class="w-full h-full bg-red-600/5 border border-red-600/20 flex flex-col p-4 sm:p-6 font-mono text-[10px] sm:text-xs overflow-hidden relative group">
+            <div class="text-red-600 mb-2 uppercase tracking-widest border-b border-red-600/20 pb-2">Core_Process.exe</div>
+            <div class="text-white/60 space-y-1 overflow-y-auto">
+              <div class="flex justify-between"><span>CPU_USAGE</span> <span class="text-red-600">42%</span></div>
+              <div class="flex justify-between"><span>MEMORY</span> <span class="text-red-600">1.2GB</span></div>
+              <div class="flex justify-between"><span>UPLINK</span> <span class="text-red-600">ACTIVE</span></div>
+              <div class="mt-4 text-red-600/40">>> Initializing kernel...</div>
+              <div class="text-red-600/40">>> Loading MERN stack...</div>
+              <div class="text-red-600/40">>> MongoDB connected.</div>
+              <div class="text-red-600/40">>> Express server live.</div>
+              <div class="text-red-600/40">>> React components ready.</div>
+              <div class="text-red-600/40">>> Node.js runtime stable.</div>
+              <div class="mt-4 animate-pulse text-red-600">_</div>
+            </div>
+            <div class="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-100 pointer-events-none"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
+      <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
+        <div class="w-full md:w-1/3 max-w-[350px]">
+          <div class="relative w-full aspect-square border-2 border-red-600 p-4">
+            <div class="absolute -top-4 -right-4 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase z-10">Subject_01</div>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Engineer" class="w-full h-full object-cover grayscale contrast-125">
+            <div class="absolute inset-0 bg-red-600/10 mix-blend-overlay"></div>
+          </div>
+        </div>
+        <div class="w-full md:w-2/3">
+          <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-8 flex items-center gap-4">
+            <span class="text-red-600">01.</span> ABOUT_ME
+          </h2>
+          <div class="space-y-6 text-slate-400 leading-relaxed text-base sm:text-lg">
+            <p>
+              I am a specialized unit focused on the <span class="text-white font-bold">MERN stack</span> ecosystem. My primary directives include architecting robust backends and developing fluid, reactive interfaces.
+            </p>
+            <p>
+              With over 5 years of operational experience, I have successfully deployed numerous high-scale applications, optimizing for both performance and security.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 mt-10">
+              <div class="flex-1 border-l-2 border-red-600 pl-4">
+                <div class="text-red-600 text-xs font-bold uppercase mb-1">Location</div>
+                <div class="text-white">Cyberspace / Remote</div>
+              </div>
+              <div class="flex-1 border-l-2 border-red-600 pl-4">
+                <div class="text-red-600 text-xs font-bold uppercase mb-1">Availability</div>
+                <div class="text-white">Ready for deployment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
+      <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-16 flex items-center gap-4">
+        <span class="text-red-600">02.</span> TECH_STACK
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
+          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">MongoDB</div>
+          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Database Engine</p>
+          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-red-600 w-[85%]"></div>
+          </div>
+        </div>
+        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
+          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">Express.js</div>
+          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Server Framework</p>
+          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-red-600 w-[90%]"></div>
+          </div>
+        </div>
+        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
+          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">React.js</div>
+          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">UI Library</p>
+          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-red-600 w-[95%]"></div>
+          </div>
+        </div>
+        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
+          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">Node.js</div>
+          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Runtime Env</p>
+          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-red-600 w-[92%]"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
+      <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-16 flex items-center gap-4">
+        <span class="text-red-600">03.</span> RECENT_BUILDS
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="group relative overflow-hidden border border-red-600/20 flex flex-col justify-between">
+          <div class="aspect-video bg-zinc-900 relative">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" alt="Project 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500"></div>
+          </div>
+          <div class="p-6 sm:p-8 bg-black relative flex-grow">
+            <div class="absolute top-0 right-8 -translate-y-1/2 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase">Deployed</div>
+            <h3 class="text-2xl font-bold font-orbitron mb-4">NEURAL_DASHBOARD</h3>
+            <p class="text-slate-400 mb-6 text-sm sm:text-base">A real-time analytics engine built with React and Socket.io for monitoring server clusters.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">React</span>
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Node.js</span>
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">MongoDB</span>
+            </div>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden border border-red-600/20 flex flex-col justify-between">
+          <div class="aspect-video bg-zinc-900 relative">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" alt="Project 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500"></div>
+          </div>
+          <div class="p-6 sm:p-8 bg-black relative flex-grow">
+            <div class="absolute top-0 right-8 -translate-y-1/2 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase">CYBER_STORE</div>
+            <h3 class="text-2xl font-bold font-orbitron mb-4">E-COMMERCE_CORE</h3>
+            <p class="text-slate-400 mb-6 text-sm sm:text-base">Full-featured MERN stack marketplace with encrypted payment processing and inventory management.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Express</span>
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Redux</span>
+              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Stripe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-[1320px] w-full mx-auto mt-24 mb-40 py-20 px-6 border-t border-red-600/10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl sm:text-5xl font-bold font-orbitron mb-8">INITIATE_CONTACT</h2>
+        <p class="text-slate-400 text-base sm:text-lg mb-12">
+          Transmission lines are open. Send your requirements for immediate processing.
+        </p>
+        <form class="space-y-6 text-left" onsubmit="event.preventDefault();">
+          <div class="flex flex-col sm:flex-row gap-6">
+            <div class="flex-1 space-y-2">
+              <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Sender_ID</label>
+              <input type="text" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="NAME text-slate-500">
+            </div>
+            <div class="flex-1 space-y-2">
+              <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Uplink_Address</label>
+              <input type="email" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="EMAIL">
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Message_Payload</label>
+            <textarea rows="5" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="ENTER TRANSMISSION..."></textarea>
+          </div>
+          <button type="submit" class="w-full py-6 bg-red-600 text-black font-bold uppercase tracking-[0.5em] hover:bg-white cursor-pointer transition-colors duration-300">
+            Send Transmission
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </body>
+</html>
