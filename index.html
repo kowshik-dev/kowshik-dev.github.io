@@ -1,255 +1,384 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOWSHIK.DEV | Building Digital Products & Web Experiences</title>
+<meta name="description" content="Kowshik - MERN developer journey, projects, gallery and developer ecosystem.">
+<meta property="og:title" content="KOWSHIK.DEV">
+<meta property="og:description" content="Building Digital Products & Web Experiences">
+<meta property="og:type" content="website">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap"
-      rel="stylesheet" />
+<!-- Core Framework Engines -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <style>
-      /* Correct Tailwind v4 font theme injection styling */
-      @theme {
-        --font-orbitron: "Orbitron", sans-serif;
-        --font-mono: "Roboto Mono", monospace;
-      }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { font-family: 'Inter', sans-serif; background: #050505; }
+.logo { font-family: 'Orbitron', sans-serif; letter-spacing: 0.05em; }
+.glass { backdrop-filter: blur(24px); background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); }
+.glass:hover { border-color: rgba(239, 68, 68, 0.2); }
+.icon-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: #94a3b8; }
+.icon-card:hover { transform: translateY(-6px); background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.4); color: #ef4444; }
 
-      @keyframes scanline {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-      }
-      .animate-scanline {
-        animation: scanline 4s linear infinite;
-      }
-    </style>
-  </head>
-  <body class="bg-black text-white font-mono min-h-screen selection:bg-red-600 selection:text-black">
+/* Custom Fine-Tuned Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+</style>
+</head>
+<body class="text-white antialiased selection:bg-red-500/30" x-data="{ modalOpen: false, modalSrc: '', modalAlt: '' }">
+
+<!-- STICKY FIXED NAVIGATION HUB -->
+<nav class="fixed top-0 left-0 w-full z-40 glass border-b border-white/5 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#" class="logo text-xl font-black tracking-widest text-white hover:text-red-500 transition-colors">KOWSHIK<span class="text-red-500">.DEV</span></a>
     
-    <nav class="max-w-[1320px] w-full mx-auto flex flex-col sm:flex-row justify-between items-center py-6 px-6 border-b border-red-600/20 gap-4">
-      <div>
-        <a href="#" class="text-3xl font-bold font-orbitron text-red-600 tracking-tighter">
-          <span class="text-white">DEV</span>.ROBOT
+    <div class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest uppercase text-slate-400">
+      <a href="#about" class="hover:text-white transition-colors">About</a>
+      <a href="#spotlight" class="hover:text-white transition-colors">Spotlight</a>
+      <a href="#timeline" class="hover:text-white transition-colors">Journey</a>
+      <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+      <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+      <a href="#github" class="hover:text-white transition-colors">Contributions</a>
+      <a href="#ecosystem" class="hover:text-white transition-colors">Ecosystem</a>
+    </div>
+
+    <div>
+      <a href="mailto:contact@kowshik.dev" class="border border-red-500/30 hover:border-red-500 bg-red-500/10 hover:bg-red-500 hover:text-black text-red-400 text-xs font-bold tracking-widest px-5 py-2.5 rounded-xl transition-all duration-300">LET'S TALK</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ABOUT (HERO) SECTION WITH ANIMATIONS & COMPACTED SPACING -->
+<section id="about" class="min-h-[85vh] flex items-center px-6 relative overflow-hidden pt-28 pb-12">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(239,68,68,0.05),transparent_50%)]"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10">
+  <div class="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
+    <p class="text-red-500 font-bold uppercase tracking-[0.4em] text-sm mb-3 opacity-0 animate-fade-in-up">SOFTWARE ENGINEER</p>
+    <h1 class="logo text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] opacity-0 animate-fade-in-up animation-delay-200">
+      Building Digital <span class="text-red-500">Products</span> & Web Experiences
+    </h1>
+    <p class="text-slate-400 text-lg sm:text-xl mt-6 font-medium tracking-wide opacity-0 animate-fade-in-up animation-delay-400">
+      MERN <span class="text-red-500/50">•</span> Python <span class="text-red-500/50">•</span> Linux <span class="text-red-500/50">•</span> Open Source
+    </p>
+  </div>
+  <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center w-full px-4 sm:px-12 lg:px-0 opacity-0 animate-fade-in-up animation-delay-200">
+    <div class="relative group max-w-[340px] lg:max-w-full w-full aspect-square">
+      <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-amber-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition duration-700"></div>
+      <img src="images/kowshik-profile.jpeg" alt="Kowshik" class="rounded-3xl border border-white/10 w-full h-full object-cover relative z-10 shadow-2xl">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECT ROTATING SPOTLIGHT SECTION (AUTOPLAY CAROUSEL) -->
+<section id="spotlight" class="min-h-[75vh] flex items-center px-6 py-12 relative" 
+         x-data="{ activeSlide: 0, totalSlides: 2 }" 
+         x-init="setInterval(() => { activeSlide = (activeSlide + 1) % totalSlides }, 5000)">
+<div class="max-w-7xl mx-auto w-full">
+  <h2 class="logo text-2xl text-red-500 font-bold mb-8 flex items-center gap-4">
+    <span class="w-8 h-[1px] bg-red-500"></span>PROJECT SPOTLIGHT
+  </h2>
+  
+  <div class="relative min-h-[420px] md:min-h-[340px]">
+    <!-- Project 1: ERP -->
+    <div x-show="activeSlide === 0" 
+         x-transition:enter="transition ease-out duration-700 absolute inset-0"
+         x-transition:enter-start="opacity-0 scale-98"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-500 absolute inset-0"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-98"
+         class="glass rounded-3xl p-8 sm:p-12 relative overflow-hidden w-full h-full">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+      <span class="text-xs font-bold tracking-widest text-red-400 uppercase px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">Featured Terminal Architecture</span>
+      <h3 class="text-3xl font-extrabold text-white mt-4">Enterprise Resource Planning (ERP) System</h3>
+      <p class="text-slate-400 mt-4 max-w-3xl text-base sm:text-lg leading-relaxed">
+        A high-performance command-line business automation environment natively built in C. Incorporates role-based access management profiles for granular administrator and employee modules, isolated data structures, automated multi-tier payroll calculations, and persistent transactional storage via structured database files.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="https://github.com/kowshik-dev/erp-c" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-black bg-red-500 hover:bg-red-400 px-6 py-3 rounded-xl transition-colors">
+           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+           VIEW SOURCE CODE
         </a>
       </div>
+    </div>
+
+    <!-- Project 2: StudentToolkit -->
+    <div x-show="activeSlide === 1" 
+         x-transition:enter="transition ease-out duration-700 absolute inset-0"
+         x-transition:enter-start="opacity-0 scale-98"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-500 absolute inset-0"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-98"
+         class="glass rounded-3xl p-8 sm:p-12 relative overflow-hidden w-full h-full" style="display: none;">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
+      <span class="text-xs font-bold tracking-widest text-amber-400 uppercase px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20">Featured Desktop Application</span>
+      <h3 class="text-3xl font-extrabold text-white mt-4">Academic Assistant Application (StudentToolkit)</h3>
+      <p class="text-slate-400 mt-4 max-w-3xl text-base sm:text-lg leading-relaxed">
+        Comprehensive Maven-driven academic framework implementing graphical automated PDF Cover Page generation engines, dynamic multi-semester CGPA/SGPA optimization trackers, structural mark metrics, and persistent local SQLite layers.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="https://github.com/kowshik-dev/StudentToolkit" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-black bg-amber-500 hover:bg-amber-400 px-6 py-3 rounded-xl transition-colors">
+           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+           VIEW SOURCE CODE
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider Indicator Dots -->
+  <div class="flex justify-center gap-2 mt-6">
+    <button @click="activeSlide = 0" class="w-2.5 h-2.5 rounded-full transition-all cursor-pointer" :class="activeSlide === 0 ? 'bg-red-500 w-6' : 'bg-white/20'"></button>
+    <button @click="activeSlide = 1" class="w-2.5 h-2.5 rounded-full transition-all cursor-pointer" :class="activeSlide === 1 ? 'bg-amber-500 w-6' : 'bg-white/20'"></button>
+  </div>
+</div>
+</section>
+
+<!-- JOURNEY TIMELINE SECTION -->
+<section id="timeline" class="min-h-[60vh] flex items-center px-6 py-12 relative">
+<div class="max-w-7xl mx-auto w-full">
+  <h2 class="logo text-2xl text-red-500 font-bold mb-10 flex items-center gap-4">
+    <span class="w-8 h-[1px] bg-red-500"></span>MY JOURNEY
+  </h2>
+  <div class="relative border-l border-white/10 ml-4 space-y-10">
+    <div class="relative pl-8 group">
+      <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-900 border-2 border-red-500 group-hover:bg-red-500 transition-colors duration-300"></div>
+      <span class="text-xs font-mono text-slate-500">PHASE 01</span>
+      <h4 class="text-xl font-bold text-white mt-1">Started Programming</h4>
+    </div>
+    <div class="relative pl-8 group">
+      <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-900 border-2 border-red-500 group-hover:bg-red-500 transition-colors duration-300"></div>
+      <span class="text-xs font-mono text-slate-500">PHASE 02</span>
+      <h4 class="text-xl font-bold text-white mt-1">Learning MERN Stack</h4>
+    </div>
+    <div class="relative pl-8 group">
+      <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-900 border-2 border-red-500 group-hover:bg-red-500 transition-colors duration-300"></div>
+      <span class="text-xs font-mono text-slate-500">PHASE 03</span>
+      <h4 class="text-xl font-bold text-white mt-1">Building Full-Stack Projects</h4>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FEATURED PROJECTS SECTION -->
+<section id="projects" class="min-h-screen flex items-center px-6 py-12 relative">
+<div class="max-w-7xl mx-auto w-full">
+  <h2 class="logo text-2xl text-red-500 font-bold mb-10 flex items-center gap-4">
+    <span class="w-8 h-[1px] bg-red-500"></span>FEATURED PROJECTS
+  </h2>
+  <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+    <!-- Project Card 1: ERP-C -->
+    <div class="glass rounded-3xl overflow-hidden group flex flex-col justify-between h-full">
       <div>
-        <ul class="flex flex-wrap justify-center gap-4 sm:gap-8">
-          <li><a href="#home" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Home ]</a></li>
-          <li><a href="#about" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ About ]</a></li>
-          <li><a href="#skills" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Skills ]</a></li>
-          <li><a href="#projects" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Projects ]</a></li>
-          <li><a href="#contact" class="text-xs sm:text-sm font-medium hover:text-red-600 transition duration-300 uppercase tracking-widest">[ Contact ]</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <section id="home" class="max-w-[1320px] w-full mx-auto mt-12 overflow-hidden border border-red-600/30 bg-black relative group">
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      
-      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-red-600/10 to-transparent h-full w-full animate-scanline"></div>
-
-      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between px-6 sm:px-16 py-16 lg:py-28 gap-12">
-        <div class="max-w-2xl w-full">
-          <div class="inline-block px-3 py-1 border border-red-600 text-red-600 text-xs font-bold uppercase tracking-[0.3em] mb-6 animate-pulse">
-            System Status: Online
+        <div class="overflow-hidden aspect-video border-b border-white/5 bg-zinc-950 flex items-center justify-center cursor-pointer" @click="modalSrc='images/erpc2.png'; modalAlt='ERP System Admin Dashboard Interface'; modalOpen=true">
+          <img src="images/erpc2.png" alt="ERP System Admin Dashboard Interface" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-zinc-400"></span>
+            <span class="text-xs font-mono text-slate-400 uppercase">C System Kernel</span>
           </div>
-          <h1 class="text-5xl sm:text-7xl font-bold mb-6 leading-none font-orbitron">
-            <span class="text-white block">SOFTWARE</span>
-            <span class="text-red-600 block">ENGINEER</span>
-          </h1>
-          <p class="text-slate-400 text-base sm:text-lg mb-10 leading-relaxed max-w-lg border-l-2 border-red-600 pl-6">
-            Executing high-performance algorithms. Architecting scalable neural networks. Building the future of digital infrastructure.
+          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">ERP Management Architecture</h3>
+          <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+            Robust execution architecture optimized for terminal systems. Implements encrypted admin and employee workflow gateways, computational salary engines, requisition monitoring arrays, and underlying structural storage tracking.
           </p>
-          
-          <div class="flex flex-wrap gap-4 sm:gap-6">
-            <a href="#projects" class="group relative px-6 sm:px-8 py-4 bg-red-600 text-black font-bold uppercase tracking-widest overflow-hidden transition-all duration-300 hover:bg-white text-center flex-1 sm:flex-none">
-              <span class="relative z-10">Initialize Projects</span>
-              <div class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-            </a>
-            <a href="#contact" class="px-6 sm:px-8 py-4 border border-border border-red-600 text-red-600 font-bold uppercase tracking-widest hover:bg-red-600/10 transition-all duration-300 text-center flex-1 sm:flex-none">
-              Establish Connection
-            </a>
-          </div>
-
-          <div class="mt-16 flex flex-wrap items-center gap-6 sm:gap-8">
-            <div class="flex gap-4">
-              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">M</div>
-              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">E</div>
-              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">R</div>
-              <div class="w-10 h-10 sm:w-12 sm:h-12 border border-red-600/30 flex items-center justify-center text-red-600 font-bold text-xs">N</div>
-            </div>
-            <div class="hidden sm:block h-[1px] w-24 bg-red-600/30"></div>
-            <span class="text-red-600/60 text-[10px] uppercase tracking-[0.5em]">Protocol v2.0.4</span>
-          </div>
-        </div>
-
-        <div class="relative w-full max-w-[450px] aspect-square border-2 border-red-600/20 flex items-center justify-center p-4">
-          <div class="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-red-600"></div>
-          <div class="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-red-600"></div>
-          <div class="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-red-600"></div>
-          <div class="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-red-600"></div>
-
-          <div class="w-full h-full bg-red-600/5 border border-red-600/20 flex flex-col p-4 sm:p-6 font-mono text-[10px] sm:text-xs overflow-hidden relative group">
-            <div class="text-red-600 mb-2 uppercase tracking-widest border-b border-red-600/20 pb-2">Core_Process.exe</div>
-            <div class="text-white/60 space-y-1 overflow-y-auto">
-              <div class="flex justify-between"><span>CPU_USAGE</span> <span class="text-red-600">42%</span></div>
-              <div class="flex justify-between"><span>MEMORY</span> <span class="text-red-600">1.2GB</span></div>
-              <div class="flex justify-between"><span>UPLINK</span> <span class="text-red-600">ACTIVE</span></div>
-              <div class="mt-4 text-red-600/40">>> Initializing kernel...</div>
-              <div class="text-red-600/40">>> Loading MERN stack...</div>
-              <div class="text-red-600/40">>> MongoDB connected.</div>
-              <div class="text-red-600/40">>> Express server live.</div>
-              <div class="text-red-600/40">>> React components ready.</div>
-              <div class="text-red-600/40">>> Node.js runtime stable.</div>
-              <div class="mt-4 animate-pulse text-red-600">_</div>
-            </div>
-            <div class="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-100 pointer-events-none"></div>
-          </div>
         </div>
       </div>
-    </section>
+      <div class="px-8 pb-8">
+        <a href="https://github.com/kowshik-dev/erp-c" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-slate-300 bg-white/5 hover:bg-red-500 hover:text-black border border-white/10 hover:border-transparent px-5 py-3 rounded-xl transition-all duration-300 w-full justify-center">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          SOURCE CODE
+        </a>
+      </div>
+    </div>
 
-    <section id="about" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
-      <div class="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
-        <div class="w-full md:w-1/3 max-w-[350px]">
-          <div class="relative w-full aspect-square border-2 border-red-600 p-4">
-            <div class="absolute -top-4 -right-4 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase z-10">Subject_01</div>
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Engineer" class="w-full h-full object-cover grayscale contrast-125">
-            <div class="absolute inset-0 bg-red-600/10 mix-blend-overlay"></div>
-          </div>
+    <!-- Project Card 2: StudentToolkit -->
+    <div class="glass rounded-3xl overflow-hidden group flex flex-col justify-between h-full">
+      <div>
+        <div class="overflow-hidden aspect-video border-b border-white/5 bg-zinc-950 flex items-center justify-center cursor-pointer" @click="modalSrc='images/toolkit1.png'; modalAlt='StudentToolkit Automated Panel Interface'; modalOpen=true">
+          <img src="images/toolkit1.png" alt="StudentToolkit Automated Panel Interface" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
         </div>
-        <div class="w-full md:w-2/3">
-          <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-8 flex items-center gap-4">
-            <span class="text-red-600">01.</span> ABOUT_ME
-          </h2>
-          <div class="space-y-6 text-slate-400 leading-relaxed text-base sm:text-lg">
-            <p>
-              I am a specialized unit focused on the <span class="text-white font-bold">MERN stack</span> ecosystem. My primary directives include architecting robust backends and developing fluid, reactive interfaces.
-            </p>
-            <p>
-              With over 5 years of operational experience, I have successfully deployed numerous high-scale applications, optimizing for both performance and security.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 mt-10">
-              <div class="flex-1 border-l-2 border-red-600 pl-4">
-                <div class="text-red-600 text-xs font-bold uppercase mb-1">Location</div>
-                <div class="text-white">Cyberspace / Remote</div>
-              </div>
-              <div class="flex-1 border-l-2 border-red-600 pl-4">
-                <div class="text-red-600 text-xs font-bold uppercase mb-1">Availability</div>
-                <div class="text-white">Ready for deployment</div>
-              </div>
-            </div>
+        <div class="p-8">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span class="text-xs font-mono text-slate-400 uppercase">Java Application Suite</span>
           </div>
+          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Academic Assistant Application</h3>
+          <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+            Comprehensive Maven-driven academic framework implementing graphical automated PDF Cover Page generation engines, dynamic multi-semester CGPA/SGPA optimization trackers, structural mark metrics, and persistent local SQLite layers.
+          </p>
         </div>
       </div>
-    </section>
-
-    <section id="skills" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
-      <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-16 flex items-center gap-4">
-        <span class="text-red-600">02.</span> TECH_STACK
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
-          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">MongoDB</div>
-          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Database Engine</p>
-          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-red-600 w-[85%]"></div>
-          </div>
-        </div>
-        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
-          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">Express.js</div>
-          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Server Framework</p>
-          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-red-600 w-[90%]"></div>
-          </div>
-        </div>
-        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
-          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">React.js</div>
-          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">UI Library</p>
-          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-red-600 w-[95%]"></div>
-          </div>
-        </div>
-        <div class="border border-red-600/20 p-8 bg-zinc-900/50 hover:border-red-600 transition-colors duration-300 group">
-          <div class="text-red-600 font-bold text-xl mb-4 group-hover:translate-x-1 transition-transform">Node.js</div>
-          <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Runtime Env</p>
-          <div class="w-full h-1 bg-red-600/10 relative overflow-hidden">
-            <div class="absolute inset-0 bg-red-600 w-[92%]"></div>
-          </div>
-        </div>
+      <div class="px-8 pb-8">
+        <a href="https://github.com/kowshik-dev/StudentToolkit" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-slate-300 bg-white/5 hover:bg-red-500 hover:text-black border border-white/10 hover:border-transparent px-5 py-3 rounded-xl transition-all duration-300 w-full justify-center">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          SOURCE CODE
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
+</section>
 
-    <section id="projects" class="max-w-[1320px] w-full mx-auto mt-24 py-20 px-6 border-t border-red-600/10">
-      <h2 class="text-3xl sm:text-4xl font-bold font-orbitron mb-16 flex items-center gap-4">
-        <span class="text-red-600">03.</span> RECENT_BUILDS
-      </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="group relative overflow-hidden border border-red-600/20 flex flex-col justify-between">
-          <div class="aspect-video bg-zinc-900 relative">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" alt="Project 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500"></div>
-          </div>
-          <div class="p-6 sm:p-8 bg-black relative flex-grow">
-            <div class="absolute top-0 right-8 -translate-y-1/2 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase">Deployed</div>
-            <h3 class="text-2xl font-bold font-orbitron mb-4">NEURAL_DASHBOARD</h3>
-            <p class="text-slate-400 mb-6 text-sm sm:text-base">A real-time analytics engine built with React and Socket.io for monitoring server clusters.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">React</span>
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Node.js</span>
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">MongoDB</span>
-            </div>
-          </div>
-        </div>
-        <div class="group relative overflow-hidden border border-red-600/20 flex flex-col justify-between">
-          <div class="aspect-video bg-zinc-900 relative">
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" alt="Project 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/20 transition-all duration-500"></div>
-          </div>
-          <div class="p-6 sm:p-8 bg-black relative flex-grow">
-            <div class="absolute top-0 right-8 -translate-y-1/2 bg-red-600 text-black px-4 py-1 text-xs font-bold uppercase">CYBER_STORE</div>
-            <h3 class="text-2xl font-bold font-orbitron mb-4">E-COMMERCE_CORE</h3>
-            <p class="text-slate-400 mb-6 text-sm sm:text-base">Full-featured MERN stack marketplace with encrypted payment processing and inventory management.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Express</span>
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Redux</span>
-              <span class="text-[10px] border border-red-600/30 px-2 py-1 text-red-600 uppercase">Stripe</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- PROJECT MASONRY GALLERY SECTION -->
+<section id="gallery" class="min-h-screen flex items-center px-6 py-12 relative" x-data="{ currentProject: 'erpc' }">
+<div class="max-w-7xl mx-auto w-full">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <h2 class="logo text-2xl text-red-500 font-bold flex items-center gap-4 m-0">
+      <span class="w-8 h-[1px] bg-red-500"></span>PROJECT MASONRY GALLERY
+    </h2>
+    <div class="flex gap-2 bg-white/5 p-1.5 rounded-xl border border-white/5 self-start md:self-auto">
+      <button @click="currentProject = 'erpc'" :class="currentProject === 'erpc' ? 'bg-red-500 text-black font-semibold' : 'text-slate-400 hover:text-white'" class="px-5 py-2 rounded-lg text-xs tracking-wider uppercase font-bold transition-all duration-200 cursor-pointer">
+        ERP (C System)
+      </button>
+      <button @click="currentProject = 'toolkit'" :class="currentProject === 'toolkit' ? 'bg-red-500 text-black font-semibold' : 'text-slate-400 hover:text-white'" class="px-5 py-2 rounded-lg text-xs tracking-wider uppercase font-bold transition-all duration-200 cursor-pointer">
+        StudentToolkit (Java)
+      </button>
+    </div>
+  </div>
 
-    <section id="contact" class="max-w-[1320px] w-full mx-auto mt-24 mb-40 py-20 px-6 border-t border-red-600/10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl sm:text-5xl font-bold font-orbitron mb-8">INITIATE_CONTACT</h2>
-        <p class="text-slate-400 text-base sm:text-lg mb-12">
-          Transmission lines are open. Send your requirements for immediate processing.
-        </p>
-        <form class="space-y-6 text-left" onsubmit="event.preventDefault();">
-          <div class="flex flex-col sm:flex-row gap-6">
-            <div class="flex-1 space-y-2">
-              <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Sender_ID</label>
-              <input type="text" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="NAME text-slate-500">
-            </div>
-            <div class="flex-1 space-y-2">
-              <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Uplink_Address</label>
-              <input type="email" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="EMAIL">
-            </div>
-          </div>
-          <div class="space-y-2">
-            <label class="text-[10px] uppercase tracking-widest text-red-600 font-bold">Message_Payload</label>
-            <textarea rows="5" class="w-full bg-zinc-900/50 border border-red-600/20 p-4 focus:border-red-600 outline-none transition-colors text-white" placeholder="ENTER TRANSMISSION..."></textarea>
-          </div>
-          <button type="submit" class="w-full py-6 bg-red-600 text-black font-bold uppercase tracking-[0.5em] hover:bg-white cursor-pointer transition-colors duration-300">
-            Send Transmission
-          </button>
-        </form>
-      </div>
-    </section>
+  <!-- ERP Gallery Collection -->
+  <div x-show="currentProject === 'erpc'" x-transition class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc1.png'; modalAlt='ERP Terminal Login Interface Screen'; modalOpen=true">
+      <img src="images/erpc1.png" alt="ERP Terminal Login Interface Screen" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc2.png'; modalAlt='ERP Admin Control Center View'; modalOpen=true">
+      <img src="images/erpc2.png" alt="ERP Admin Control Center View" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc3.png'; modalAlt='ERP Add Employee Verification Terminal'; modalOpen=true">
+      <img src="images/erpc3.png" alt="ERP Add Employee Verification Terminal" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc4.png'; modalAlt='ERP Active Employee Session Terminal View'; modalOpen=true">
+      <img src="images/erpc4.png" alt="ERP Active Employee Session Terminal View" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc5.png'; modalAlt='ERP System - Full Admin Interface List'; modalOpen=true">
+      <img src="images/erpc5.png" alt="ERP System - Full Admin Interface List" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc6.png'; modalAlt='ERP System - Employee Privilege Directory'; modalOpen=true">
+      <img src="images/erpc6.png" alt="ERP System - Employee Privilege Directory" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/erpc7.png'; modalAlt='ERP Success Verification Module View'; modalOpen=true">
+      <img src="images/erpc7.png" alt="ERP Success Verification Module View" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+  </div>
 
-  </body>
+  <!-- StudentToolkit Gallery Collection -->
+  <div x-show="currentProject === 'toolkit'" x-transition style="display: none;" class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/toolkit1.png'; modalAlt='Cover Page Dynamic Generator Module'; modalOpen=true">
+      <img src="images/toolkit1.png" alt="Cover Page Dynamic Generator Module" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/toolkit2.png'; modalAlt='Subject CGPA Optimization Matrix Panel'; modalOpen=true">
+      <img src="images/toolkit2.png" alt="Subject CGPA Optimization Matrix Panel" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/toolkit3.png'; modalAlt='Interactive Mark Allocation & Report Panel'; modalOpen=true">
+      <img src="images/toolkit3.png" alt="Interactive Mark Allocation & Report Panel" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/5 bg-zinc-900 shadow-xl group cursor-zoom-in" @click="modalSrc='images/toolkit4.png'; modalAlt='Semester Planner & Grade Predictor Target View'; modalOpen=true">
+      <img src="images/toolkit4.png" alt="Semester Planner & Grade Predictor Target View" class="w-full h-auto group-hover:scale-103 transition duration-500">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- GITHUB CONTRIBUTIONS STRIP -->
+<section id="github" class="max-w-7xl mx-auto px-6 py-12">
+<h2 class="logo text-2xl text-red-500 font-bold mb-8 flex items-center gap-4">
+  <span class="w-8 h-[1px] bg-red-500"></span>GITHUB CONTRIBUTIONS
+</h2>
+<div class="glass p-6 rounded-3xl flex items-center justify-center border border-white/5 overflow-x-auto bg-[#030303]">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=kowshik-dev&theme=dark&background=050505&hide_border=true&ring=ef4444&fire=ef4444" alt="GitHub Operations Streak Counter Engine" class="max-w-full h-auto">
+</div>
+</section>
+
+<!-- DEVELOPER ECOSYSTEM HUB -->
+<section id="ecosystem" class="max-w-7xl mx-auto px-6 py-12">
+<h2 class="logo text-2xl text-red-500 font-bold mb-10 flex items-center gap-4">
+  <span class="w-8 h-[1px] bg-red-500"></span>DEVELOPER ECOSYSTEM
+</h2>
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-4 text-center">
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://github.com/kowshik-dev" target="_blank" title="GitHub">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.linkedin.com/in/kowshik-dev/" target="_blank" title="LinkedIn">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://dev.to/kowshik-dev" target="_blank" title="Dev.to">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19.453 0H4.547C2.031 0 0 2.031 0 4.547v14.906C0 21.969 2.031 24 4.547 24h14.906C21.969 24 24 21.969 24 19.453V4.547C24 2.031 21.969 0 19.453 0zm-11.4 16.5h-2.18v-9h2.18v9zm4.29-2.54h-2.11v1.17h2.72V16.5H7.723v-9h5.17v1.37h-2.72v1.22h2.11v1.37zm5.55 2.54h-1.92l-2.09-4.83v4.83h-2.18v-9h2.18v4.06l1.9-4.06h2.11l-2.51 4.72 2.51 4.28z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://hashnode.com/@kowshik-dev" target="_blank" title="Hashnode">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.351 8.019a5.532 5.532 0 0 0-3.89-1.615 5.534 5.534 0 0 0-3.965 1.69L11.75 10.96l-2.747-2.866a5.535 5.535 0 0 0-3.964-1.69 5.532 5.532 0 0 0-3.89 1.615 5.531 5.531 0 0 0-1.615 3.89 5.533 5.533 0 0 0 1.69 3.964l6.63 6.917a1.446 1.446 0 0 0 2.079 0l6.63-6.917a5.533 5.533 0 0 0 1.69-3.964 5.531 5.531 0 0 0-1.615-3.89zM12 14.5a2.5 2.5 0 1 1 2.5-2.5 2.5 2.5 0 0 1-2.5 2.5z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://leetcode.com/u/kowshik-dev/" target="_blank" title="LeetCode">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 5.85a1.375 1.375 0 0 0-.3 1.312l1.321 4.653a1.374 1.374 0 0 0 1.657.943l4.646-1.322a1.377 1.377 0 0 0 .932-1.649l-1.321-4.654A1.378 1.378 0 0 0 13.483 0zm.012 1.442a.5.5 0 0 1 .466.529l.013.916a.5.5 0 0 1-.914.288l-.66-.633a.5.5 0 0 1 .157-.807l.938-.293zm-3.69 4.6a.5.5 0 0 1 .374.072l.745.53a.5.5 0 0 1 .051.76l-.683.608a.5.5 0 0 1-.774-.112l-.377-.791a.5.5 0 0 1 .117-.611l.548-.456zm-.49 4.887a.5.5 0 0 1 .71.18l.412.774a.5.5 0 0 1-.22.684l-.827.424a.5.5 0 0 1-.685-.235l-.348-.804a.5.5 0 0 1 .288-.655l.67-.368z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.hackerrank.com/profile/kowshik_dev" target="_blank" title="HackerRank">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M11.996 0L1.706 5.94v12.12L11.996 24l10.298-5.94V5.94L11.996 0zM7.53 17.065H6.264V6.935H7.53v10.13zm5.12-3.805h-2.614V11.23h2.614V8.595h1.266v2.635h2.614v2.03h-2.614v2.64h-1.266v-2.64z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://codeforces.com/profile/kowshik-dev" target="_blank" title="Codeforces">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M4.5 12h3V24h-3zM10.5 6h3V24h-3zM16.5 0h3V24h-3z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.instagram.com/bykowshik/" target="_blank" title="Instagram">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.facebook.com/bykowshik/" target="_blank" title="Facebook">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.reddit.com/user/bykowshik/" target="_blank" title="Reddit">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.24-1.72l1.32-4.16 4.23.92c.03.95.82 1.71 1.78 1.71 1 0 1.8-.8 1.8-1.8s-.8-1.8-1.8-1.8c-.84 0-1.56.58-1.74 1.36l-4.64-1.01c-.19-.04-.38.08-.44.26l-1.5 4.73c-2.43.04-4.67.69-6.33 1.71-.56-.74-1.44-1.21-2.43-1.21-1.65 0-3 1.35-3 3 0 1.13.63 2.11 1.56 2.62-.06.29-.09.59-.09.88 0 3.86 4.49 7 10 7s10-3.14 10-7c0-.29-.03-.59-.09-.88.93-.51 1.56-1.49 1.56-2.62zm-17 1c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm10 4.5c-1.78 1.78-5.16 1.78-6.94 0-.15-.15-.15-.39 0-.54.15-.15.39-.15.54 0 1.48 1.48 4.38 1.48 5.86 0 .15-.15.39-.15.54 0 .15.15.39 0 .54zm-.5-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://www.producthunt.com/@bykowshik" target="_blank" title="Product Hunt">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M14 11.5c0-1.38-1.12-2.5-2.5-2.5H9v5h2.5c1.38 0 2.5-1.12 2.5-2.5zm10 .5c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-11.5-5H8v10h2v-3h1.5c2.485 0 4.5-2.015 4.5-4.5S14.985 7 12.5 7z"/></svg>
+  </a>
+  <a class="icon-card glass p-5 rounded-2xl flex items-center justify-center" href="https://bsky.app/profile/bykowshik.bsky.social" target="_blank" title="Bluesky">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 10.8c-1.34-2.5-4.57-5.3-7.5-6.3C2.33 3.7.83 4.9.83 6.9c0 1.2.6 4.3 1 5.7.7 2.2 2.6 3.1 4.7 2.8-3.4 2.4-4.3 5.4-2.1 7.2 4.1 3.5 6.9-1.9 7.6-3.4.7 1.5 3.5 6.9 7.6 3.4 2.2-1.8 1.3-4.8-2.1-7.2 2.1.3 4-.6 4.7-2.8.4-1.4 1-4.5 1-5.7 0-2-1.5-3.2-3.67-2.4-2.93 1-6.16 3.8-7.5 6.3z"/></svg>
+  </a>
+</div>
+</section>
+
+<!-- CLOSING CONTACT FOOTER -->
+<section class="text-center py-16 relative">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+<h3 class="logo text-sm font-bold tracking-widest text-slate-400 mb-6">WANT TO DISCUSS WORK?</h3>
+<a href="mailto:contact@kowshik.dev" class="inline-block relative group">
+  <div class="absolute inset-0 bg-red-600 rounded-2xl blur opacity-40 group-hover:opacity-60 transition duration-300"></div>
+  <span class="relative block bg-red-500 text-black px-10 py-4.5 rounded-2xl font-black tracking-wider text-sm transform active:scale-95 transition-transform duration-150">
+    contact@kowshik.dev
+  </span>
+</a>
+</section>
+
+<!-- LIGHTBOX MODAL PREVIEW ENGINE -->
+<div x-show="modalOpen" 
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+     style="display: none;"
+     @click="modalOpen = false"
+     @keydown.escape.window="modalOpen = false">
+  
+  <button class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all cursor-pointer" @click="modalOpen = false">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+
+  <div class="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center" @click.stop>
+    <img :src="modalSrc" :alt="modalAlt" class="max-w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl">
+    <p x-text="modalAlt" class="text-slate-400 text-xs font-mono tracking-wide mt-4 bg-zinc-900/80 px-4 py-2 rounded-full border border-white/5"></p>
+  </div>
+</div>
+
+</body>
 </html>
